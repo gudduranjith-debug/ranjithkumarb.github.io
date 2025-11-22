@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranjith Kumar B | Data Science Portfolio</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59,130,246,0.15);
+      --text: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: #1f2937;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(15,23,42,0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1d2540 0, #050816 45%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 18px 60px;
+    }
+
+    /* Top “card” wrapper */
+    .shell {
+      background: linear-gradient(145deg, rgba(55,65,81,0.6), rgba(17,24,39,0.95));
+      border-radius: 26px;
+      padding: 1px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .shell-inner {
+      border-radius: 25px;
+      background: radial-gradient(circle at top left, rgba(59,130,246,0.18), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(139,92,246,0.18), transparent 55%),
+                  #020617;
+      padding: 26px 24px 30px;
+      border: 1px solid rgba(148,163,184,0.25);
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: 800px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .hero-main {
+      max-width: 620px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .title {
+      font-size: clamp(26px, 4vw, 32px);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 540px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(156,163,175,0.6);
+      background: rgba(15,23,42,0.75);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: #eff6ff;
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 25px rgba(37,99,235,0.55);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(37,99,235,0.65);
+      filter: brightness(1.04);
+    }
+
+    .btn-secondary {
+      background: rgba(15,23,42,0.9);
+      border-color: rgba(148,163,184,0.6);
+      color: var(--text);
+      box-shadow: 0 8px 20px rgba(15,23,42,0.8);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: #e5e7eb;
+    }
+
+    .hero-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    /* Sections layout */
+    .grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 900px) {
+      .grid-3 {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      }
+    }
+
+    section {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 18px 16px 20px;
+      border: 1px solid var(--border);
+    }
+
+    section h2 {
+      font-size: 17px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    section h2 span.emoji {
+      font-size: 19px;
+    }
+
+    section p,
+    section li {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(31,41,55,0.9);
+      border: 1px solid rgba(55,65,81,0.9);
+    }
+
+    /* Project cards */
+    .project-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .project-card {
+      background: #020617;
+      border-radius: var(--radius-md);
+      padding: 10px 11px 11px;
+      border: 1px solid rgba(55,65,81,0.7);
+    }
+
+    .project-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .project-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .project-bullets {
+      margin-left: 16px;
+      margin-top: 4px;
+    }
+
+    .project-bullets li {
+      margin-bottom: 3px;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 11px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    a.inline-link {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a.inline-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="shell">
+      <div class="shell-inner">
+
+        <!-- HEADER / HERO -->
+        <header>
+          <div class="hero-main">
+            <div class="eyebrow">Data Science Portfolio</div>
+            <h1 class="title">Hi, I'm Ranjith Kumar B</h1>
+            <p class="subtitle">
+              Data Analyst &amp; aspiring Data Scientist based in Colombo, Sri Lanka.
+              I enjoy turning messy, real-world data into clear insights using
+              Python, machine learning, and modern BI tools.
+            </p>
+
+            <div class="hero-tags">
+              <span class="tag">BSc (Hons) Data Science</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Data Visualization</span>
+              <span class="tag">Financial Analytics</span>
+            </div>
+
+            <div class="hero-links">
+              <a class="btn" href="mailto:gudduranjith@gmail.com">
+                ✉️ Email Me
+              </a>
+              <a class="btn btn-secondary" href="https://www.linkedin.com/in/ranjith-kumar-8b8b5410a" target="_blank">
+                🔗 View LinkedIn
+              </a>
+              <a class="btn btn-secondary" href="https://github.com/ranjithkumarb" target="_blank">
+                🐙 GitHub Profile
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              Open to roles: <strong>Data Analyst</strong>, <strong>Junior Data Scientist</strong>, Analytics Internships.
+            </div>
+          </div>
+        </header>
+
+        <!-- MAIN GRID -->
+        <div class="grid grid-3">
+
+          <!-- About / Skills -->
+          <section>
+            <h2><span class="emoji">👨‍💻</span> About Me</h2>
+            <p>
+              I am an enthusiastic BSc (Hons) Data Science undergraduate with a strong interest in
+              <strong>machine learning</strong>, <strong>statistics</strong>, and
+              <strong>data visualization</strong>. With my civil engineering background,
+              I’m comfortable working with complex systems and real-world constraints, and I enjoy
+              building structured, data-driven solutions.
+            </p>
+            <p style="margin-top:6px;">
+              I am continuously improving my skills through academic projects, self-learning, and
+              hands-on experimentation with Python, SQL, Power BI, and ML libraries.
+            </p>
+
+            <h2 style="margin-top:14px;"><span class="emoji">🛠️</span> Core Skills</h2>
+            <div class="chips">
+              <span class="chip">Python (Pandas, NumPy, Scikit-learn)</span>
+              <span class="chip">SQL</span>
+              <span class="chip">Machine Learning (Classification, Regression)</span>
+              <span class="chip">Power BI &amp; Tableau</span>
+              <span class="chip">Data Cleaning &amp; Feature Engineering</span>
+              <span class="chip">Excel (Advanced)</span>
+              <span class="chip">Statistics</span>
+              <span class="chip">Git &amp; GitHub</span>
+            </div>
+
+            <h2 style="margin-top:14px;"><span class="emoji">🌐</span> Languages</h2>
+            <div class="chips">
+              <span class="chip">Tamil – Native</span>
+              <span class="chip">English – Fluent</span>
+              <span class="chip">Hindi – Conversational</span>
+              <span class="chip">Sinhala – Conversational</span>
+            </div>
+          </section>
+
+          <!-- Featured Project + Other Projects -->
+          <section>
+            <h2><span class="emoji">🚀</span> Featured Project</h2>
+            <div class="project-card">
+              <div class="project-title">
+                Financial Risk Assessment ML System
+              </div>
+              <div class="project-meta">
+                Enhancing Risk Management in Financial Institutions through Data Analytics
+              </div>
+              <ul class="project-bullets">
+                <li>Built an end-to-end ML pipeline to predict customer credit risk using ~15,800 records and 17 features.</li>
+                <li>Implemented Logistic Regression, Decision Tree, and Random Forest with cross-validation and tuning.</li>
+                <li>Best model: <strong>Random Forest</strong> (~78% accuracy, AUC ≈ 0.84); key drivers: income, credit score, loan amount, assets.</li>
+                <li>Developed an interactive <strong>Plotly Dash</strong> app for real-time risk prediction and visualization for non-technical staff.</li>
+              </ul>
+            </div>
+
+            <h2 style="margin-top:14px;"><span class="emoji">📂</span> Other Projects</h2>
+            <div class="project-list">
+
+              <div class="project-card">
+                <div class="project-title">Predictive Maintenance Model</div>
+                <div class="project-meta">
+                  Python · Scikit-learn · Equipment sensor data
+                </div>
+                <ul class="project-bullets">
+                  <li>Analyzed machine sensor data to predict failures before breakdown.</li>
+                  <li>Improved preventive maintenance scheduling efficiency by ~30%.</li>
+                </ul>
+              </div>
+
+              <div class="project-card">
+                <div class="project-title">Power BI Performance Dashboard</div>
+                <div class="project-meta">
+                  Power BI · SQL · Business KPIs
+                </div>
+                <ul class="project-bullets">
+                  <li>Designed interactive dashboards for revenue, KPIs, and operational metrics.</li>
+                  <li>Enabled managers to quickly explore trends using slicers and drill-downs.</li>
+                </ul>
+              </div>
+
+              <div class="project-card">
+                <div class="project-title">Automated Data Quality Pipeline</div>
+                <div class="project-meta">
+                  Python · SQL · Data Cleaning
+                </div>
+                <ul class="project-bullets">
+                  <li>Automated validation and cleaning steps for operational datasets.</li>
+                  <li>Reduced manual data processing time by approximately 50%.</li>
+                </ul>
+              </div>
+
+            </div>
+
+          </section>
+        </div>
+
+        <!-- BOTTOM GRID: Education / Contact -->
+        <div class="grid" style="margin-top:18px;">
+
+          <section>
+            <h2><span class="emoji">🎓</span> Education & Certifications</h2>
+            <ul class="project-bullets">
+              <li><strong>BSc (Hons) Data Science</strong> – Colombo, Sri Lanka (Ongoing)</li>
+              <li><strong>HND in Data Analytics</strong> – ESOFT Metro Campus (2023–2024)</li>
+              <li><strong>B.E. Civil Engineering</strong> – Anna University, Chennai (2009–2013)</li>
+            </ul>
+
+            <p style="margin-top:8px; font-size:13px; color:var(--text-muted);">
+              Certifications include Machine Learning, Python Advanced, Power BI Basics, and
+              Java (Top 10% global ranking on LearnTube).
+            </p>
+
+            <h2 style="margin-top:14px;"><span class="emoji">🎯</span> Career Objective</h2>
+            <p>
+              To build a professional career as a <strong>Data Analyst / Junior Data Scientist</strong>,
+              applying machine learning, statistics, and data visualization to deliver actionable
+              insights and support strategic business decisions.
+            </p>
+          </section>
+
+        </div>
+
+        <footer>
+          © <span id="year"></span> Ranjith Kumar B · Built with ❤️ using HTML &amp; CSS ·
+          <a class="inline-link" href="https://github.com/ranjithkumarb" target="_blank">GitHub</a> ·
+          <a class="inline-link" href="https://www.linkedin.com/in/ranjith-kumar-8b8b5410a" target="_blank">LinkedIn</a>
+        </footer>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Simple script to keep year current
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
